@@ -1,66 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    
+    <modelVersion>4.0.0</modelVersion> 
     <parent>
         <groupId>fixme.smsibi</groupId>
         <artifactId>fixme</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <groupId>fixme.smsibi</groupId>
     <artifactId>fixme-broker</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <dependencies>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator-annotation-processor</artifactId>
-            <version>4.1.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.15</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.15</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.2</version>
-        <scope>provided</scope>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                   <archive>
-                        <manifest>
-                            <mainClass>fixme.broker.controllers.Broker</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-              </plugin>
-        </plugins>
-    </build>
-    
-
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.6.0</junit.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.29</checkstyle.version>
+    <checkstyle-rules.version>4.0.1</checkstyle-rules.version>
+    <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+    <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+    <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+    <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+    <!-- JaCoCo thresholds. Increase gradually as you add tests. -->
+    <jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
+    <jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
+    <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
+    <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
+  </properties>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.0.2.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.15</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.12</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass> fixme.broker.controllers.Broker</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

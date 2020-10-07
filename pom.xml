@@ -10,7 +10,25 @@
         <module>fixme-router</module>
         <module>fixme-market</module>
     </modules>
-    
+    <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.6.0</junit.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.29</checkstyle.version>
+    <checkstyle-rules.version>4.0.1</checkstyle-rules.version>
+    <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+    <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+    <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+    <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+    <!-- JaCoCo thresholds. Increase gradually as you add tests. -->
+    <jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
+    <jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
+    <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
+    <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
+  </properties>
     <build>
         <plugins>
             <plugin>
@@ -24,12 +42,4 @@
               </plugin>
         </plugins>
     </build>
-    
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    
 </project>
